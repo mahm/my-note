@@ -5,4 +5,10 @@
 // the compiled file.
 //
 //= require vendor-debug
-//= require_tree .
+//= require notes
+//= require ./sencha/models/NoteModel
+//= require ./sencha/stores/NotesStore
+//= require ./sencha/views/MainView
+//= require ./sencha/views/NotesListView
+//= require ./sencha/views/NoteEditorView
+//= require ./sencha/controllers/NotesController
