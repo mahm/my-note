@@ -2,7 +2,7 @@ Ext.regModel 'NoteModel'
   idProperty: 'id'
   fields: [
     {name: 'id', type: 'int'},
-    {name: 'date', type: 'date', dateFormat: 'c'},
+    {name: 'created_at', type: 'date', dateFormat: 'c'},
     {name: 'title', type: 'string'},
     {name: 'narrative', type: 'string'}
   ],
@@ -10,5 +10,3 @@ Ext.regModel 'NoteModel'
     {type: 'presence', field: 'id'},
     {type: 'presence', field: 'title', message: 'Please enter a title for this note.'}
   ]
-
-console.log "NoteModel loaded..."

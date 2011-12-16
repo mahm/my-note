@@ -2,22 +2,22 @@ Ext.regStore 'NotesStore',
   model: 'NoteModel'
 
   sorters: [
-    property: 'date'
+    property: 'created_at'
     direction: 'DESC'
   ]
 
   proxy:
-    type: 'localstorage'
-    id: 'notes-app-localstore'
+    type: 'ajax'
+    url: 'notes.json'
+    reader:
+      type: 'json'
+
+  autoLoad: true
 
   getGroupString: (record) ->
-    if record && record.data.date
-      return record.get('date').toDateString()
+    if record && record.data.created_at
+      return record.get('created_at').toDateString()
     else
       return ''
-
-  data: [
-    {id: 1, date: new Date(), title: 'Test Note', narrative: 'This is simply a test note'}
-  ]
 
 NotesApp.stores.notesStore = Ext.StoreMgr.get('NotesStore')

@@ -12,7 +12,7 @@ Ext.regController('NotesController', {
     console.log "NotesController: newnote"
     now = new Date()
     noteId = now.getTime()
-    note = Ext.ModelMgr.create({id: noteId, date: now, title: '', narrative: ''}, 'NoteModel')
+    note = Ext.ModelMgr.create({id: noteId, created_at: now, title: '', narrative: ''}, 'NoteModel')
     NotesApp.views.noteEditorView.load(note)
     NotesApp.views.mainView.setActiveItem(
       NotesApp.views.noteEditorView,
@@ -43,7 +43,7 @@ Ext.regController('NotesController', {
       currentNote.setDirty()
 
     NotesApp.stores.notesStore.sync()
-    NotesApp.stores.notesStore.sort [{property: 'date', direction: 'DESC'}]
+    NotesApp.stores.notesStore.sort [{property: 'created_at', direction: 'DESC'}]
     NotesApp.views.notesListView.refreshList()
     NotesApp.views.mainView.setActiveItem(
       NotesApp.views.notesListView,
